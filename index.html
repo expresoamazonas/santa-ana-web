@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Santa Ana Expreso Amazonas S.R.L. — Giros Nacionales</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+
+<!-- NOTIF BANNER -->
+<div id="notifBanner"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="javascript:void(0)" onclick="showPage('home')" class="nav-brand">
+    <img src="logo.jpg" alt="Santa Ana" class="nav-brand-logo">
+    <span class="nav-brand-txt">Santa Ana Expreso Amazonas S.R.L.</span>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="javascript:void(0)" onclick="showPage('home');closeMenu()" data-page="home">Inicio</a>
+    <a href="javascript:void(0)" onclick="showPage('tarifas');closeMenu()" data-page="tarifas">Tarifas</a>
+    <a href="javascript:void(0)" onclick="showPage('sucursales');closeMenu()" data-page="sucursales">Sucursales</a>
+    <a href="javascript:void(0)" onclick="showPage('asfi');closeMenu()" data-page="asfi">ASFI</a>
+    <a href="javascript:void(0)" onclick="showPage('fraude');closeMenu()" data-page="fraude">Alertas</a>
+    <a href="javascript:void(0)" onclick="showPage('home');setTimeout(()=>document.getElementById('contacto').scrollIntoView({behavior:'smooth'}),300);closeMenu()" class="nav-cta">Contacto</a>
+  </div>
+  <button class="nav-hamburger" id="navHamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ══ PAGE HOME ══ -->
+<div id="page-home" class="spa-page active">
+
+<section class="hero" id="inicio">
+  <div class="hero-inner">
+    <div class="hero-tag">Empresa boliviana regulada por ASFI</div>
+    <h1>Giros Nacionales <span>rápidos</span> y seguros</h1>
+    <p class="hero-sub">Enviamos tu dinero a cualquier rincón de Bolivia en minutos. Más de 32 agencias en todo el país.</p>
+    <div class="hero-btns">
+      <a href="javascript:void(0)" onclick="showPage('sucursales')" class="btn-p">Ver sucursales →</a>
+      <a href="#como-funciona" class="btn-s">¿Cómo funciona?</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hst"><div class="hst-n">+32</div><div class="hst-l">Agencias</div></div>
+      <div class="hst"><div class="hst-n">1%</div><div class="hst-l">Comisión</div></div>
+      <div class="hst"><div class="hst-n">Inmediato</div><div class="hst-l">Entrega</div></div>
+      <div class="hst"><div class="hst-n">+50K</div><div class="hst-l">Clientes</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="flag"></div>
+
+<section class="how-sec" id="como-funciona">
+  <div class="sec-tag">Proceso</div>
+  <h2>Enviar es muy sencillo</h2>
+  <p class="sec-sub">Solo 4 pasos y tu destinatario puede cobrar al instante.</p>
+  <div class="steps">
+    <div class="step"><div class="step-n"></div><div class="step-ico">1</div><div class="step-t">Visita una agencia</div><div class="step-d">Acércate con tu carnet de identidad vigente.</div></div>
+    <div class="step"><div class="step-n"></div><div class="step-ico">2</div><div class="step-t">Registra el giro</div><div class="step-d">Indica nombre del destinatario, ciudad y monto.</div></div>
+    <div class="step"><div class="step-n"></div><div class="step-ico">3</div><div class="step-t">Realiza el pago</div><div class="step-d">Paga el monto más comisión y recibe tu código.</div></div>
+    <div class="step"><div class="step-n"></div><div class="step-ico">4</div><div class="step-t">¡Listo!</div><div class="step-d">Tu destinatario cobra con su CI y el código.</div></div>
+  </div>
+</section>
+
+<div class="flag"></div>
+
+<section>
+  <div class="sec-tag">Beneficios</div>
+  <h2>¿Por qué elegir Santa Ana?</h2>
+  <p class="sec-sub">Años de experiencia conectando familias bolivianas de forma segura.</p>
+  <div class="feat-grid">
+    <div class="feat-card"><div class="feat-ico">•</div><div class="feat-t">Entrega inmediata</div><div class="feat-d">El dinero está disponible en minutos desde que realizas el envío.</div></div>
+    <div class="feat-card"><div class="feat-ico">•</div><div class="feat-t">100% seguro</div><div class="feat-d">Código único por giro. Solo tu destinatario con su CI puede cobrar.</div></div>
+    <div class="feat-card"><div class="feat-ico">•</div><div class="feat-t">Tarifas accesibles</div><div class="feat-d">Solo el 1% de comisión. <a href="javascript:void(0)" onclick="showPage('tarifas')" style="color:var(--verde)">Ver tabla completa →</a></div></div>
+    <div class="feat-card"><div class="feat-ico">•</div><div class="feat-t">Cobertura nacional</div><div class="feat-d">+32 agencias en Bolivia. <a href="javascript:void(0)" onclick="showPage('sucursales')" style="color:var(--verde)">Ver todas →</a></div></div>
+    <div class="feat-card"><div class="feat-ico">•</div><div class="feat-t">Atención personalizada</div><div class="feat-d">Personal capacitado te asiste en cada paso del proceso.</div></div>
+    <div class="feat-card"><div class="feat-ico">•</div><div class="feat-t">Amplio horario</div><div class="feat-d">Lunes a Sábado 8:00–18:00. Domingos 9:00–13:00.</div></div>
+  </div>
+</section>
+
+<section style="background:var(--gris);border-top:1px solid var(--borde);border-bottom:1px solid var(--borde)">
+  <div class="sec-tag">Testimonios</div>
+  <h2>Lo que dicen nuestros clientes</h2>
+  <div class="testi-grid" style="margin-top:40px">
+    <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-txt">Envío dinero a mi mamá en Cochabamba cada quince días. Siempre llega en minutos y el trato es excelente.</p><div class="testi-foot"><div class="testi-av">JM</div><div><div class="testi-name">Juan Mamani</div><div class="testi-city">La Paz</div></div></div></div>
+    <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-txt">La comisión es muy accesible. Mis hijos en Santa Cruz reciben el dinero al instante sin ningún problema.</p><div class="testi-foot"><div class="testi-av">RC</div><div><div class="testi-name">Rosa Condori</div><div class="testi-city">Oruro</div></div></div></div>
+    <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-txt">Me da mucha confianza que pidan el carnet para cobrar. Sé que mi dinero llega seguro a quien yo quiero.</p><div class="testi-foot"><div class="testi-av">MT</div><div><div class="testi-name">Mario Torrez</div><div class="testi-city">Tarija</div></div></div></div>
+  </div>
+</section>
+
+<div class="cta-box" id="contacto">
+  <div>
+    <div class="cta-title">¿Listo para enviar tu primer giro?</div>
+    <p class="cta-sub">Av. Héroes del Pacífico Nº 1374, Edificio Pacífico · Tel: 2228261</p>
+  </div>
+  <div class="cta-btns">
+    <a href="javascript:void(0)" onclick="showPage('sucursales')" class="btn-p">Ver sucursales</a>
+    <a href="#como-funciona" class="btn-s">¿Cómo funciona?</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">Santa Ana Expreso Amazonas S.R.L.</div>
+      <p class="footer-desc">Conectando familias bolivianas a través de giros nacionales seguros y accesibles.</p>
+    </div>
+    <div>
+      <div class="f-col-t">Servicios</div>
+      <ul class="f-links">
+        <li><a href="javascript:void(0)" onclick="showPage('home')">Enviar Giro</a></li>
+        <li><a href="javascript:void(0)" onclick="showPage('tarifas')">Tarifas</a></li>
+        <li><a href="javascript:void(0)" onclick="showPage('sucursales')">Sucursales</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="f-col-t">Información</div>
+      <ul class="f-links">
+        <li><a href="javascript:void(0)" onclick="showPage('asfi')">ASFI</a></li>
+        <li><a href="javascript:void(0)" onclick="showPage('fraude')">Alertas de fraude</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="f-col-t">Contacto</div>
+      <ul class="f-links">
+        <li><a href="tel:2228261">2228261</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#deadbfb0aabfbfb0bfadacb2bdb1b0aabfbdaab19eb9b3bfb7b2f0bdb1b3">✉️ Correo</a></li>
+        <li><a href="#">De Lunes a Sabado: 8:00–18:00</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="f-copy">© 2026 Santa Ana Expreso Amazonas S.R.L.</span>
+    <span class="f-copy">Regulados por ASFI</span>
+  </div>
+</footer>
+</div><!-- /page-home -->
+
+<!-- ══ PAGE TARIFAS ══ -->
+<div id="page-tarifas" class="spa-page">
+  <div class="page-hero">
+    <a class="page-hero-back" onclick="showPage('home')">← Inicio</a>
+    <div class="page-hero-title">Tarifas</div>
+    <div class="page-hero-sub">Precios transparentes, sin costos ocultos</div>
+  </div>
+  <section>
+    <div class="rates-wrap">
+      <div>
+        <div class="sec-tag">Comisión</div>
+        <h2>Precios transparentes</h2>
+        <p class="sec-sub">Sin costos ocultos. Solo una comisión justa sobre el monto enviado.</p>
+        <div class="rate-box">
+          <div class="rate-big">1<span>%</span></div>
+          <p class="rate-desc">Sobre el monto enviado. Comisión mínima Bs. 0.50. Válido para envíos desde Bs. 50.</p>
+          <div class="rate-pills">
+            <span class="pill">Mín. Bs. 50</span>
+            <span class="pill">Máx. Bs. 5,000</span>
+            <span class="pill">Com. mín. Bs. 0.50</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:12px;font-weight:600;color:var(--txt2);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">Ejemplos</p>
+        <div class="rate-tbl">
+          <div class="rt-h"><span>Monto</span><span>Comisión</span><span>Total</span></div>
+          <div class="rt-r"><span class="rt-m">Bs. 50</span><span class="rt-c">Bs. 0.50</span><span class="rt-t">Bs. 50.50</span></div>
+          <div class="rt-r"><span class="rt-m">Bs. 100</span><span class="rt-c">Bs. 1.00</span><span class="rt-t">Bs. 101.00</span></div>
+          <div class="rt-r"><span class="rt-m">Bs. 300</span><span class="rt-c">Bs. 3.00</span><span class="rt-t">Bs. 303.00</span></div>
+          <div class="rt-r"><span class="rt-m">Bs. 500</span><span class="rt-c">Bs. 5.00</span><span class="rt-t">Bs. 505.00</span></div>
+          <div class="rt-r"><span class="rt-m">Bs. 1,000</span><span class="rt-c">Bs. 10.00</span><span class="rt-t">Bs. 1,010.00</span></div>
+          <div class="rt-r"><span class="rt-m">Bs. 2,000</span><span class="rt-c">Bs. 20.00</span><span class="rt-t">Bs. 2,020.00</span></div>
+          <div class="rt-r"><span class="rt-m">Bs. 5,000</span><span class="rt-c">Bs. 50.00</span><span class="rt-t">Bs. 5,050.00</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="req-grid">
+      <div class="req-card env"><div class="req-ico"></div><div class="req-t">Para Enviar</div><div class="req-s">Si tú eres quien envía el giro</div><ul class="req-list"><li>Carnet de identidad original y vigente</li><li>Nombre completo del destinatario</li><li>Ciudad de destino del giro</li><li>Monto a enviar (Bs. 50–5,000)</li><li>Celular del destinatario (opcional)</li></ul></div>
+      <div class="req-card cob"><div class="req-ico"></div><div class="req-t">Para Cobrar</div><div class="req-s">Si tú eres quien recibe el giro</div><ul class="req-list"><li>Carnet de identidad original y vigente</li><li>Código único del giro</li><li>Acercarse a cualquier agencia de la ciudad destino</li></ul></div>
+    </div>
+  </section>
+</div>
+
+<!-- ══ PAGE SUCURSALES ══ -->
+<div id="page-sucursales" class="spa-page">
+  <div class="page-hero">
+    <a class="page-hero-back" onclick="showPage('home')">← Inicio</a>
+    <div class="page-hero-title">Sucursales</div>
+    <div class="page-hero-sub">+32 agencias en todo Bolivia</div>
+  </div>
+  <section>
+    <div class="sec-tag">Cobertura</div>
+    <h2>+32 agencias en todo Bolivia</h2>
+    <p class="sec-sub">Presentes en La Paz, Beni, Santa Cruz, Pando y más departamentos del país.</p>
+    <div class="suc-grid">
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">La Paz</div><div class="suc-n">C. Jorge Baenz Nº 1069, Z. Miraflores</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Magdalena</div><div class="suc-n">Beni — C. Federico Zampieri S/N</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Cochabamba</div><div class="suc-n">C. Hamiraya Nº 345 Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Santa Rosa de Yauma</div><div class="suc-n">Beni — C. Miguel Simón S/N</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Cobija</div><div class="suc-n">Pando — Av. 9 de Febrero S/N</div><div class="suc-h">L-S 8:00–17:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Santa Cruz</div><div class="suc-n">C. René Moreno Nº 490, 2do Anillo</div><div class="suc-h">L-S 8:00–19:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Trinidad</div><div class="suc-n">Beni — C. Antonio José de Sucre Nº 466</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Guayaramerín</div><div class="suc-n">Beni — C. Beni Nº 15</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">San Buenaventura</div><div class="suc-n">La Paz — C. Daniel Salamanca S/N</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Yacumo</div><div class="suc-n">Beni — C. 16 de Julio Zona Pacajes</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">San Borja</div><div class="suc-n">Beni — C. Cochabamba S/N</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Rurrenabaque</div><div class="suc-n">Beni — C. Comercio S/N</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Santa Ana de Yacuma</div><div class="suc-n">Beni — C. Santa Cruz Nº 51</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Reyes</div><div class="suc-n">Beni — C. Virgen de Fátima Nº 08</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Riberalta</div><div class="suc-n">Beni — Av. Ejército Nacional Nº 530</div><div class="suc-h">L-S 8:00–17:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">San Ignacio de Moxos</div><div class="suc-n">Beni — C. Santiesteban S/N</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">San Joaquín</div><div class="suc-n">Beni — C. Avaroa Nº 11</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Huacaraje</div><div class="suc-n">Beni — C. 24 de Septiembre Nº 54</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Perú Río Apere</div><div class="suc-n">Beni — C. Sin Nombre, Perú Río Apare</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Tumpasa</div><div class="suc-n">Beni — C. Constitución S/N</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Baures</div><div class="suc-n">Beni — C. 6 de Agosto S/N</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">San Ramón del Beni</div><div class="suc-n">Beni — C. Coronel Viera Nº 132</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Palos Blancos</div><div class="suc-n">La Paz — Av. Antofagasta Nº 141</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Bella Vista</div><div class="suc-n">Beni — C. 18 de Noviembre S/N</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">El Carmen del Itenez</div><div class="suc-n">Beni — C. Jorge Suarez Vidal S/N</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Ixtamas</div><div class="suc-n">La Paz — C. América S/N Hotel Tajibo</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">San Javier de Chiquitos</div><div class="suc-n">Beni — Av. Padre José de Arce S/N</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Caranavi</div><div class="suc-n">La Paz — C. Bolívar S/N Galería Bolívar</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">San José de Chiquitos</div><div class="suc-n">Beni — C. Bolívar S/N Galería Bolívar</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">San Matías</div><div class="suc-n">La Paz — C. Donato Yabari</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Robore</div><div class="suc-n">Beni — C. Donato Yabari</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Puerto Suarez</div><div class="suc-n">Beni — C. Chuquisaca Nº 26</div><div class="suc-h">L-S 8:00–18:00</div></div>
+    </div>
+  </section>
+</div>
+
+<!-- ══ PAGE ASFI ══ -->
+<div id="page-asfi" class="spa-page">
+  <div class="page-hero">
+    <a class="page-hero-back" onclick="showPage('home')">← Inicio</a>
+    <div class="page-hero-title">ASFI</div>
+    <div class="page-hero-sub">Autoridad de Supervisión del Sistema Financiero</div>
+  </div>
+  <section>
+    <div class="sec-tag">Regulación</div>
+    <h2>Supervisados por ASFI</h2>
+    <p class="sec-sub">Santa Ana Expreso Amazonas S.R.L. opera bajo la tutela del Ministerio de Economía y Finanzas Públicas.</p>
+    <div class="asfi-grid">
+      <div class="asfi-card main"><div class="asfi-icon">§</div><div class="asfi-t">¿Qué es ASFI?</div><p class="asfi-d">Institución reguladora que protege y supervisa todas las entidades del sistema financiero nacional boliviano.</p><a href="https://www.asfi.gob.bo" target="_blank" class="asfi-link">Visitar asfi.gob.bo →</a></div>
+      <div class="asfi-card"><div class="asfi-icon">§</div><div class="asfi-t">Ley N° 393</div><p class="asfi-d">Garantiza acceso a servicios financieros equitativos, sin discriminación por edad, género o identidad cultural.</p></div>
+      <div class="asfi-card"><div class="asfi-icon">§</div><div class="asfi-t">Tus derechos</div><ul class="asfi-list"><li>Acceso equitativo a servicios</li><li>Información clara y oportuna</li><li>Reclamos en 5 días hábiles</li><li>Sin discriminación</li></ul></div>
+      <div class="asfi-card"><div class="asfi-icon">§</div><div class="asfi-t">¿Cómo reclamar?</div><ul class="asfi-list"><li>Acércate a cualquier agencia</li><li>Presenta reclamo verbal o escrito</li><li>Recibirás número de constancia</li><li>O acude a asfi.gob.bo</li></ul></div>
+    </div>
+  </section>
+</div>
+
+<!-- ══ PAGE FRAUDE ══ -->
+<div id="page-fraude" class="spa-page">
+  <div class="page-hero">
+    <a class="page-hero-back" onclick="showPage('home')">← Inicio</a>
+    <div class="page-hero-title">Alertas de fraude</div>
+    <div class="page-hero-sub">Protégete de las estafas financieras</div>
+  </div>
+  <section>
+    <div class="sec-tag">Alertas</div>
+    <h2>Protégete del fraude</h2>
+    <p class="sec-sub">Conoce las tipologías de estafa más comunes.</p>
+    <div class="fraude-banner"><span style="font-size:20px;flex-shrink:0;font-weight:700;color:#e53e3e">!</span><span><strong>Importante:</strong> Una vez que un giro es pagado al beneficiario, <strong>NO se puede obtener reembolso</strong>. Consulta antes de realizar el envío.</span></div>
+    <div class="fraude-grid">
+      <div class="fraude-card"><div class="fraude-ico">•</div><div class="fraude-t">Premio falso</div><p class="fraude-d">Te contactan diciendo que ganaste un premio y piden enviar dinero. <strong>Ningún sorteo legítimo pide dinero por adelantado.</strong></p></div>
+      <div class="fraude-card"><div class="fraude-ico">•</div><div class="fraude-t">Identidad falsa</div><p class="fraude-d">Estafadores actúan en nombre de entidades financieras. <strong>Verifica siempre la identidad de quien te contacta.</strong></p></div>
+      <div class="fraude-card"><div class="fraude-ico">•</div><div class="fraude-t">Urgencia de envío</div><p class="fraude-d">Te presionan para enviar dinero urgentemente. <strong>Llama directamente a tu familiar para verificar.</strong></p></div>
+      <div class="fraude-card"><div class="fraude-ico">•</div><div class="fraude-t">Estafa en línea</div><p class="fraude-d">Relaciones falsas en redes sociales para pedir transferencias. <strong>Desconfía de personas que no conoces en persona.</strong></p></div>
+    </div>
+    <div class="fraude-tips">
+      <div class="ftip"><span style="color:var(--verde);font-weight:700">✓</span><span>Verifica los datos del recibo <strong>antes</strong> de que sea procesado</span></div>
+      <div class="ftip"><span style="color:var(--verde);font-weight:700">✓</span><span>Firma el recibo y <strong>exige tu factura</strong> en cada transacción</span></div>
+      <div class="ftip"><span style="color:var(--verde);font-weight:700">✓</span><span>Nunca envíes dinero a personas que <strong>no conoces personalmente</strong></span></div>
+      <div class="ftip"><span style="color:var(--verde);font-weight:700">✓</span><span>Ante dudas, llama al <strong>2228261</strong> o visita <strong>asfi.gob.bo</strong></span></div>
+    </div>
+  </section>
+</div>
+
+<!-- LOGIN -->
+<div class="login-overlay" id="loginOverlay"><div class="login-box"><h3>Acceso Admin</h3><p>Ingresa la contraseña</p><input class="login-input" id="loginPass" type="password" placeholder="••••••" /><div class="login-error" id="loginError">Contraseña incorrecta</div><button class="login-btn" id="loginBtn">Ingresar</button><button class="login-cancel" id="loginCancelBtn">Cancelar</button></div></div>
+<!-- ADMIN PANEL -->
+<div class="admin-overlay" id="adminOverlay"><div class="admin-panel">
+  <div class="admin-head"><div class="admin-title">Panel Admin <span class="admin-saving" id="adminSaving">Guardando...</span></div><button class="admin-close" id="adminCloseBtn">✕</button></div>
+  <!-- TABS -->
+  <div class="admin-tabs"><button class="atab active" id="tabSucBtn">Sucursales</button><button class="atab" id="tabStatsBtn">Estadísticas</button></div>
+  <!-- TAB: SUCURSALES -->
+  <div id="tabSuc">
+    <div class="admin-sub">Agregar sucursal</div>
+    <div class="suc-form"><input class="suc-input" id="newCiudad" placeholder="Ciudad *" /><input class="suc-input" id="newDir" placeholder="Dirección *" /><input class="suc-input" id="newDepto" placeholder="Departamento" /><input class="suc-input" id="newHorario" placeholder="Horario" /><button class="suc-add-btn" id="addSucBtn">+ Agregar</button></div>
+    <div class="admin-sub">Sucursales — <span id="sucCount" style="color:var(--acento2)">0</span></div>
+    <div class="suc-admin-list" id="sucAdminList"></div>
+  </div>
+  <!-- TAB: ESTADÍSTICAS -->
+  <div id="tabStats" style="display:none">
+    <div class="stats-grid">
+      <div class="stat-box"><div class="stat-num" id="stVisitas">0</div><div class="stat-label">Visitas</div></div>
+      <div class="stat-box"><div class="stat-num" id="stSesiones">0</div><div class="stat-label">Sesiones Chat</div></div>
+      <div class="stat-box"><div class="stat-num" id="stMensajes">0</div><div class="stat-label">Mensajes</div></div>
+      <div class="stat-box"><div class="stat-num" id="stSucursales">0</div><div class="stat-label">Sucursales</div></div>
+    </div>
+    <div class="admin-sub" style="margin-top:20px">Preguntas más frecuentes del chatbot</div>
+    <div id="faqList" style="display:flex;flex-direction:column;gap:6px"></div>
+    <div class="admin-sub" style="margin-top:20px">Últimas conversaciones</div>
+    <div id="chatLog" style="background:rgba(0,0,0,.2);border-radius:8px;padding:14px;font-size:12px;color:rgba(255,255,255,.5);font-family:monospace;max-height:180px;overflow-y:auto">— Sin conversaciones —</div>
+    <div style="margin-top:16px;text-align:right"><button class="suc-del-btn" id="resetStatsBtn" style="font-size:12px;padding:8px 16px">Resetear estadísticas</button></div>
+  </div>
+</div></div>
+
+<!-- CHATBOT FAB -->
+<div style="position:fixed;bottom:24px;right:24px;z-index:500">
+  <button class="chat-fab" id="chatFab">
+    <span class="chat-badge" id="chatBadge">1</span>
+    <svg class="icon-chat" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+    <svg class="icon-close" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+  </button>
+</div>
+
+<!-- CHATBOT WINDOW -->
+<div class="chat-window" id="chatWindow">
+  <div class="chat-header">
+    <img src="logo.jpg" alt="SA" class="chat-h-ico" style="width:36px;height:36px;border-radius:50%;object-fit:cover">
+    <div>
+      <div class="chat-h-name">Santa Ana Expreso Amazonas S.R.L.</div>
+      <div class="chat-h-sub"><span class="chat-h-dot"></span>Asistente en línea</div>
+    </div>
+  </div>
+  <div class="chat-flag"></div>
+  <div class="chat-msgs" id="chatMsgs"></div>
+  <div class="chat-quick" id="chatQuick"></div>
+  <div class="agent-banner" id="agentBanner">
+    <span style="font-size:14px;font-weight:700">AG</span>
+    <div><div class="ag-title">Conectar con un agente</div><div class="ag-sub">Aprox. 3 min de espera</div></div>
+    <button class="ag-btn" onclick="connectAgent()">Conectar</button>
+  </div>
+  <div class="chat-input-area">
+    <textarea class="chat-input" id="chatInput" placeholder="Escribe tu pregunta..." rows="1"></textarea>
+    <button class="chat-send" id="chatSend" onclick="handleSend()">
+      <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+    </button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
