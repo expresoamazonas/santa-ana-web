@@ -261,7 +261,7 @@ async function handleSend() {
     addMsg('bot', 'Ups, problema de conexión. Por favor intenta de nuevo. 🙏');
   }
   loading = false; sendBtn.disabled = false;
-  renderQuick(true);
+  // renderQuick(true); // FIX: no volver a mostrar los botones despues del primer mensaje
 }
 
 function connectAgent() {
